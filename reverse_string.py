@@ -19,6 +19,21 @@ print(reverse_string("apple"))
 print(reverse_string("hello"))
 print(reverse_string("Greetings!"))
 
+
+def reverse_string_forward_iterator(string_to_reverse):
+    reversed_string = ""
+    # forward iterator
+    length_of_string = len(string_to_reverse)
+    index = 0
+    while index <= length_of_string - 1:
+        char = string_to_reverse[index]
+        reversed_string = char + reversed_string  
+        index += 1
+
+    # print("{}-{}".format(string_to_reverse, reversed_string))
+    return reversed_string
+
+
 # UNITTEST
 
 
@@ -28,7 +43,7 @@ class TestingReverseString(unittest.TestCase):
         string_to_reverse = "Apple"
         expected = "elppA"
         self.assertTrue(
-            expr=reverse_string(string_to_reverse) == expected,
+            expr=reverse_string_forward_iterator(string_to_reverse) == expected,
             msg="string {} is reversed".format(expected)
         )
         # print(reverse_string(string_to_reverse) == expected)
@@ -38,7 +53,7 @@ class TestingReverseString(unittest.TestCase):
         string_to_reverse = "hello"
         expected = "olleh"
         self.assertTrue(
-            expr=reverse_string(string_to_reverse) == expected,
+            expr=reverse_string_forward_iterator(string_to_reverse) == expected,
             msg="string {} is reversed".format(expected)
         )
 
