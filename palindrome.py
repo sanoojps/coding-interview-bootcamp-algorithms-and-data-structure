@@ -17,6 +17,7 @@ def is_palindrome_reverse_and_comparison(string_to_check):
 
     return is_palindrome
 
+print("is_palindrome_reverse_and_comparison")
 print(is_palindrome_reverse_and_comparison("madam"))
 print(is_palindrome_reverse_and_comparison("india"))
 
@@ -26,7 +27,7 @@ def is_palindrome_loop(string_to_check):
     reverse_index = length - 1
     mid_point = length // 2 #integer division
     is_palindrome = False
-    while reverse_index >= 0:
+    while reverse_index >= mid_point:
         if string_to_check[forward_index] is string_to_check[reverse_index]:
             is_palindrome = True
         else:
@@ -37,7 +38,7 @@ def is_palindrome_loop(string_to_check):
     
     return is_palindrome
      
-
+print("is_palindrome_loop")
 print(is_palindrome_loop("madam") == True)
 print(is_palindrome_loop("india") == False)
 print(is_palindrome_loop("maam") == True)
