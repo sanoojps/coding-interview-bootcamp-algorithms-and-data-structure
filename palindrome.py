@@ -47,3 +47,64 @@ print(is_palindrome_loop("11") == True)
 print(is_palindrome_loop("12") == False)
 print(is_palindrome_loop("malayalam") == True)
 print(is_palindrome_loop("mam") == True)
+
+
+def is_palindrome_loop_without_tracking_index(string_to_check):
+    is_a_palindrome = False
+    length_of_string = len(
+        string_to_check
+    )
+    last_index = length_of_string - 1
+    for index,char in enumerate(string_to_check):
+        print(
+            "{} {}".format(
+                index,char
+                )
+        )
+        char_at_index = string_to_check[last_index - index]
+        if char is char_at_index:
+            is_a_palindrome = True
+
+    return is_a_palindrome
+
+
+
+print(
+    is_palindrome_loop_without_tracking_index(
+    "malayalam"
+    )
+)
+
+
+# How to reverse a string
+def reverse_a_string(string: str):
+
+    string_to_reverse = list(string)
+    length_of_string = len(string)
+    assert(length_of_string >= 2)
+
+    first_index = 0
+    last_index = length_of_string - 1
+
+    while first_index <= last_index:
+        # swap
+        tmp = string_to_reverse[first_index]
+        string_to_reverse[first_index] = string_to_reverse[last_index]
+        string_to_reverse[last_index] = tmp 
+
+        first_index+=1
+        last_index-=1
+
+    return "".join(string_to_reverse)
+
+
+
+
+
+
+
+print(reverse_a_string("jom") == "moj")
+print(reverse_a_string("jomom") == "momoj")
+print(reverse_a_string("123456") == "654321")
+# print(reverse_a_string("j") == "j")
+print(reverse_a_string("jo") == "oj")
